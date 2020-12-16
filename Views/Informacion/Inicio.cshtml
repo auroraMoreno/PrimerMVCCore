@@ -1,0 +1,21 @@
+﻿@using PrimerMVCCore.Models
+@model Persona
+
+
+@{ 
+    int numero = 14;
+    String texto = "bro";
+}
+
+@if (numero > 0)
+{
+    <h2>Positivo</h2>
+}
+else
+{
+  <h2>negativo</h2>
+}
+
+<h1 style="color:lightpink">@texto,  Mi primera vista MVC</h1>
+<h2>Su nombre es @ViewData["Nombre"] y su edad es @ViewBag.Edad</h2>
+<h1>@Model.Nombre, @Model.Email, @Model.Edad</h1>
