@@ -1,0 +1,11 @@
+﻿@using PrimerMVCCore.Models
+@model List<Persona>
+
+<h1>Multiples objetos en view</h1>
+@{ 
+    foreach(Persona p in Model)
+    {
+        <p>@p.Nombre</p>
+        <p>@p.Edad</p>
+    }
+}

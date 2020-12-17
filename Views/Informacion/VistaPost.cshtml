@@ -1,14 +1,29 @@
-﻿<h1>Metodo post</h1>
+﻿@using PrimerMVCCore.Models
+@model Persona
+
+<h1>Metodo post</h1>
 <form method="post">
     <label>Nombre</label>
-    <input type="text" name="cajanombre"/>
-    <br/>
+    <input type="text" name="nombre"
+           class="form-control" />
+    <br />
     <label>Edad</label>
-    <input type="text"/>
-    <br/>
+    <input type="text" name="edad" class="form-control" />
+    <br />
     <label>Email</label>
-    <input type="text" name="cajaedad"/>
-    <button>Enviar informacion</button>
+    <input type="text" name="email" class="form-control" />
+    <input type="text" name="descripcion"/>
+    <button type="submit" class="btn btn-success">Enviar informacion</button>
 </form>
-<h1>Nombre: @ViewBag.Nombre</h1>
-<h2>edad: @ViewBag.Edad</h2>
+<h1>Nombre: @ViewData["NOMBRE"]</h1>
+<h2>edad:  @ViewData["EDAD"] </h2>
+<h2>Email: @ViewData["EMAIL"] </h2>
+<hr />
+@if (Model != null)
+{
+    <h1>P.Nombre: @Model.Nombre</h1>
+    <h2>P.edad:  @Model.Edad </h2>
+    <h2>P.Email: @Model.Email</h2>
+    <h1>P.valor: @Model.Valor</h1>
+    <h1>Descripcion: @ViewBag.Descripcion</h1>
+}

@@ -9,19 +9,42 @@ namespace PrimerMVCCore.Controllers
 {
     public class InformacionController : Controller
     {
+        //get objetos persona 
+        public IActionResult ObjetosPersona()
+        {
+            //devolver multiples personas
+            List<Persona> personas = new List<Persona>();
+            for(int i =0; i <=3; i++)
+            {
+                Persona p = new Persona();
+                p.Nombre = "persona " + i;
+                p.Edad = i;
+                personas.Add(p);
+            }
+            return View(personas);
+        }
         public IActionResult VistaPost()
         {
             return View();
         }
 
-        public IActionResult VistaPost(String cajanombre, String cajaedad)
+        [HttpPost]
+        public IActionResult VistaPost(Persona person, String descripcion)
         {
-            ViewBag.Nombre = cajanombre;
-            ViewBag.Edad = cajaedad;
-            return View();
+            ViewBag.Descripcion = descripcion;
+            //Persona person = new Persona();
+            //person.Nombre = cajanombre;
+            //person.Email = cajaemail;
+            //person.Edad = cajaedad;
+            //ViewData["NOMBRE"] = cajanombre;
+            //ViewData["EDAD"] = cajaedad;
+            //ViewData["EMAIL"] = cajaemail;
+        //    ViewBag.Nombre = cajanombre;
+        //    ViewBag.Edad = cajaedad;
+            return View(person);
         }
 
-        [HttpPost]
+    
         public IActionResult VistaDatos(String aplicacion, int version)
         {
             ViewBag.Aplicacion = aplicacion;
